@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import Joi from 'joi';
 import bcyrpt from 'bcrypt';
-import User from '../models/User';
-import userSchema from '../schemas/register.schema';
+import User from '../../models/User';
+import userSchema from '../../schemas/register.schema';
 
 const router: Router = Router();
 
@@ -40,4 +40,5 @@ router.route('/').post(async function(req: Request, res: Response) {
     return res.status(500).json({ error: 'Error occurred' });
   }
 });
+
 export const Register: Router = router;
