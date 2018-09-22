@@ -6,7 +6,7 @@ import registerSchema from './register.schema';
 
 const router: Router = Router();
 
-router.route('/').post(async function(req: Request, res: Response) {
+router.route('/').post(async (req: Request, res: Response) => {
   const validator = Joi.validate(req.body, registerSchema, {
     allowUnknown: false,
     abortEarly: false
