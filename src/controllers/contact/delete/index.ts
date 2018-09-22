@@ -3,7 +3,7 @@ import router from '../routeMiddleware';
 import Contact from '../../../models/Contact';
 import IRequest from '../../../interfaces/request';
 
-router.route('/:contact').patch(async (req: IRequest, res: Response) => {
+router.route('/:contact').delete(async (req: IRequest, res: Response) => {
   const contactID = req.params.contact;
 
   if (!contactID) {
@@ -24,10 +24,10 @@ router.route('/:contact').patch(async (req: IRequest, res: Response) => {
   }
   try {
     await Contact.destroy({ where: { userId: req.userId, contactID } });
-    return res.status(204);
+    return res.sendStatus(204);
   } catch (e) {
     return res.status(e.status);
   }
 });
 
-export const UpdateContact: Router = router;
+export const DeleteContact: Router = router;
