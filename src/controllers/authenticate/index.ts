@@ -33,7 +33,7 @@ router.route('/').post(async function(req: Request, res: Response) {
   if (!passwordValid) return res.status(400).json({ error: 'Password is incorrect' });
 
   // Generate token
-
+  // #TODO: secret key should be an env variable
   const token = jwt.sign({ user: user.email }, 'secretkey');
 
   return res.status(200).json({
