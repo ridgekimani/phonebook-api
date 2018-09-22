@@ -16,7 +16,6 @@ app.use(`${urlPrefix}/register/`, Register);
 app.use(`${urlPrefix}/authenticate/`, Authenticate);
 
 // Contacts
-
 app.use(`${urlPrefix}/contact`, CreateContact);
 
 export default app;

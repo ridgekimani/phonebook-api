@@ -2,7 +2,7 @@ import { Router, Response } from 'express';
 import IRequest from '../../../interfaces/request';
 import Joi from 'joi';
 import createSchema from './create.schema';
-import router from '../baseRouter';
+import router from '../rootMiddleware';
 import Contact from '../../../models/Contact';
 import User from '../../../models/User';
 
@@ -22,8 +22,8 @@ router.route('/').post(async (req: IRequest, res: Response) => {
     });
   }
 
+  // Create contact
   const user = await User.findOne({ where: { email: req.user } });
-
   if (user) {
     await Contact.findOrCreate({ where: { ...req.body, userId: user.userId } }).spread((contact, created) => {
       if (created) {
