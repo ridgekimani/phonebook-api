@@ -1,3 +1,5 @@
 import { CreateContact } from './create';
 import { ReadContacts } from './read';
-export { CreateContact, ReadContacts };
+import { UpdateContact } from './update';
+
+export { CreateContact, ReadContacts, UpdateContact };
