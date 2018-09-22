@@ -2,12 +2,12 @@ import { Router, Request, Response } from 'express';
 import Joi from 'joi';
 import bcyrpt from 'bcrypt';
 import User from '../../models/User';
-import userSchema from '../../schemas/register.schema';
+import registerSchema from './register.schema';
 
 const router: Router = Router();
 
 router.route('/').post(async function(req: Request, res: Response) {
-  const validator = Joi.validate(req.body, userSchema, {
+  const validator = Joi.validate(req.body, registerSchema, {
     allowUnknown: false,
     abortEarly: false
   });
@@ -18,7 +18,8 @@ router.route('/').post(async function(req: Request, res: Response) {
       error: validator.error.details.reduce((acc: any = [], value) => {
         acc.push({ message: value.message });
         return acc;
-      }, [])
+      }, []),
+      validation: true
     });
   }
 
