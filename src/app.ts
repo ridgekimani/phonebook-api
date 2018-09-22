@@ -1,8 +1,16 @@
-import express from "express"
-import { HelloController } from "./controllers"
+import express from 'express';
+import bodyParser from 'body-parser';
+import * as dotenv from 'dotenv';
+import { Register } from './controllers';
 
-const app: express.Application = express()
+dotenv.config();
 
-app.use('/', HelloController)
+const app: express.Application = express();
 
-export default app
+app.use(bodyParser.json());
+
+const urlPrefix = '/api/v1';
+
+app.use(`${urlPrefix}/register/`, Register);
+
+export default app;
