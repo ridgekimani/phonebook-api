@@ -32,21 +32,19 @@ router.route("/")
 
         // Check if user exists with the same email
         const user = await User.findOne({ where: { email: req.body.email }});
-        if (user) return res.status(409).json({ error: "User exists with that email" })
+        if (user) return res.status(409).json({ error: "User exists with that email" });
 
-
+        // Save user
         try {
             const password =  await bcyrpt.hash(req.body.password, 10);
 
-            // Save user
-            const newUser = new User({...req.body, password});
-            newUser.save()
+            const newUser = new User({ ...req.body, password });
+            newUser.save();
 
             return res.status(201).json({
                 "success": "User created successfully"
             })
         } catch (e) {
-            console.log(e)
             return res.status(500).json({ "error": "Error occurred" })
         }
 
