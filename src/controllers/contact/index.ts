@@ -1,3 +1,3 @@
 import { CreateContact } from './create';
-
-export { CreateContact };
+import { ReadContacts } from './read';
+export { CreateContact, ReadContacts };

@@ -2,7 +2,7 @@ import { Router, Response } from 'express';
 import IRequest from '../../../interfaces/request';
 import Joi from 'joi';
 import createSchema from './create.schema';
-import router from '../rootMiddleware';
+import router from '../routeMiddleware';
 import Contact from '../../../models/Contact';
 import User from '../../../models/User';
 
