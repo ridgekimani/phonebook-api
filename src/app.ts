@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
-import { Register, Authenticate, CreateContact } from './controllers';
+import { Register, Authenticate, CreateContact, ReadContacts } from './controllers';
 
 dotenv.config();
 
@@ -17,5 +17,6 @@ app.use(`${urlPrefix}/authenticate/`, Authenticate);
 
 // Contacts
 app.use(`${urlPrefix}/contact`, CreateContact);
+app.use(`${urlPrefix}/contacts`, ReadContacts);
 
 export default app;
