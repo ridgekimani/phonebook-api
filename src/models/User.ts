@@ -1,7 +1,13 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt } from 'sequelize-typescript';
+import { Table, Column, Model, CreatedAt, UpdatedAt, HasMany, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import Contact from './Contact';
 
 @Table
 class User extends Model<User> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column
+  public userId: number;
+
   @Column
   firstName: string;
 
@@ -21,6 +27,9 @@ class User extends Model<User> {
   @UpdatedAt
   @Column
   updatedAt: Date;
+
+  @HasMany(() => Contact)
+  contacts: Contact[];
 }
 
 export default User;

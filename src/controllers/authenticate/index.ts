@@ -34,7 +34,7 @@ router.route('/').post(async function(req: Request, res: Response) {
 
   // Generate token
   // #TODO: secret key should be an env variable
-  const token = jwt.sign({ user: user.email }, 'secretkey');
+  const token = jwt.sign({ user: user.email, userID: user.userId }, 'secretkey');
 
   return res.status(200).json({
     success: 'User authenticated successfully',
