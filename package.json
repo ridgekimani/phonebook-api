@@ -10,7 +10,8 @@
     "serve": "node dist/server.js",
     "watch-node": "nodemon dist/server.js",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\"",
-    "build": "rm -rf dist && yarn tsc"
+    "build": "rm -rf dist && yarn tsc",
+    "prettier-watch": "onchange '**/*.ts' -- prettier --write {{changed}}"
   },
   "repository": {
     "type": "git",
@@ -48,11 +49,19 @@
     "@types/joi": "^13.4.5",
     "@types/supertest": "^2.0.6",
     "errorhandler": "^1.5.0",
+    "husky": "^1.0.0-rc.14",
     "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0",
     "sequelize-cli": "^4.1.1",
     "supertest": "^3.3.0",
     "ts-jest": "^23.10.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
