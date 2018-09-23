@@ -2,17 +2,13 @@ import chalk from 'chalk';
 import app from './app';
 import sequelize from './sequalize';
 
-import errorHandler from 'errorHandler';
-
-if (process.env.NODE_ENV === 'development') {
-  app.use(errorHandler());
-}
+const environment = process.env.NODE_ENV || 'development';
 
 const port = process.env.PORT || 3000;
 
 (async () => {
-  await sequelize.sync({ force: true });
+  environment === 'development' && (await sequelize.sync({ force: true, logging: true }));
   app.listen(port, () => {
-    console.log(chalk.yellow(`Listening at http://localhost:${port}/`));
+    console.log(chalk.yellow(`Listening at PORT ${port}/`));
   });
 })();
