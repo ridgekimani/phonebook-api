@@ -1,6 +1,6 @@
 **Phonebook API**
 
-####Setup
+#### Setup
 
 ```bash
 # install dependencies
@@ -194,3 +194,15 @@ OR
   - status code 403
     OR
   - status code 404
+
+### ERRORS
+
+400: { error: ${validation errors} }
+
+401: { error: "User not authorized" }
+
+404: { error: "${resource} not found" }
+
+409: { error: "${resource} already exists" }
+
+500: { error: "server error" }
