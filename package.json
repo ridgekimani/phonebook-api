@@ -39,7 +39,8 @@
     "pg-hstore": "^2.3.2",
     "reflect-metadata": "^0.1.12",
     "sequelize": "^4.38.1",
-    "sequelize-typescript": "^0.6.6"
+    "sequelize-typescript": "^0.6.6",
+    "typescript": "^3.0.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^2.0.0",
@@ -58,8 +59,7 @@
     "sequelize-cli": "^4.1.1",
     "supertest": "^3.3.0",
     "ts-jest": "^23.10.0",
-    "tslint": "^5.11.0",
-    "typescript": "^3.0.3"
+    "tslint": "^5.11.0"
   },
   "husky": {
     "hooks": {
