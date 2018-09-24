@@ -1,5 +1,18 @@
 **Phonebook API**
 
+####Setup
+
+```bash
+# install dependencies
+$ npm install # Or yarn install
+
+# Add env variables.
+- Create a .env file with the contents in the .env-sample file
+
+# serve with hot reload at localhost:3000
+$ yarn watch
+```
+
 RESTFUL PHONEBOOK API
 
 #### AUTH API endpoints
@@ -72,14 +85,14 @@ RESTFUL PHONEBOOK API
 - SUCCESS:
   - status code 201
   - content
-        {
-           "success: "Contact created successfully"
-            "contact": {}
-        }
+    {
+    "success: "Contact created successfully"
+    "contact": {}
+    }
 
 * ERROR:
   - status code 400
-  OR
+    OR
   - status code 403
 
 ##### 2. Read Contact
@@ -105,10 +118,9 @@ RESTFUL PHONEBOOK API
              "contact": {}
          }
 
+OR
 
-  OR
-
-  - content
+- content
 
 
          {
@@ -157,11 +169,11 @@ OR
              "contact": { }
          }
 
-* ERROR:
+- ERROR:
   - status code 400
-  OR
+    OR
   - status code 403
-  OR
+    OR
   - status code 404
 
 #### 4. Delete Contact
@@ -178,7 +190,7 @@ OR
   - status code 204
 - ERROR:
   - status code 400
-  OR
+    OR
   - status code 403
-  OR
+    OR
   - status code 404
