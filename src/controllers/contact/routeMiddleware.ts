@@ -16,10 +16,9 @@ router.use(async (req: IRequest, res: Response, next: NextFunction) => {
 
   // Verify the token signature
   token = token.split(' ')[1];
-  // #TODO: secret key should be an env variable
-  return jwt.verify(token, 'secretkey', async function(_err, decoded: any) {
+  return jwt.verify(token, process.env.SECRET_KEY || '', async function(_err, decoded: any) {
     if (decoded) {
-      const user = await User.findOne({ where: { email: decoded.user } });
+      const user = await User.findOne({ where: { email: decoded.user, userId: decoded.userId } });
       if (!user) {
         return res.status(404).json({
           error: {
